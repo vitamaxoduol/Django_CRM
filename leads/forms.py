@@ -1,10 +1,11 @@
 from django import forms
-from .models import Lead
+from .models import Lead, Agent
 
 
 class LeadModelForm(forms.ModelForm):
+    agent = forms.ModelChoiceField(queryset=Agent.objects.all(), empty_label="Select Agent")
     class Meta:
-        model: Lead
+        model = Lead
         fields = (
             'first_name',
             'last_name',

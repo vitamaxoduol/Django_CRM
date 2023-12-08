@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .lead {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+
+        .lead h2 {
+            margin-top: 0;
+        }
+
+        .lead-actions {
+            margin-top: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 5px 15px;
+            margin-right: 5px;
+            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .button-danger {
+            background-color: #dc3545;
+        }
+
+        .button-details {
+            background-color: #17a2b8;
+        }
+    </style>
+</head>
+
+<body>
+    <header>Lead Management</header>
+    <a href="/leads/create/"> Create a new Lead</a>
+    <hr>
+    <h1>This is all of our leads</h1>
+    {% for lead in leads %}
+        <div class="lead">
+            <a href="/leads/{{ lead.pk }}/">{{ lead.first_name }} {{ lead.last_name }} Age: {{lead.age}}</a>
+            <a href="{% url 'leads:lead_update' lead.id %}">Update Lead</a>
+            <a href="{% url 'leads:lead_delete' lead.id %}">Delete</a>
+            <a href="{% url 'leads:lead_detail' lead.id%}">Details</a>
+    {% endfor %}
+</body>
+</html>

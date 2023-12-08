@@ -1,15 +1,75 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Lead</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
 
-<html>
-    <head>
-        <title>Delete Lead</title>
-    </head>
-    <body>
-        <h1>Are you sure you want to delete {{ lead.first_name }} {{ lead.last_name }}?<h1>
+        .header {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .confirmation-container {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .confirmation-container h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #dc3545;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background-color: #c82333;
+        }
+
+        .button-blue {
+            background-color: #007bff;
+        }
+
+        .button-blue:hover {
+            background-color: #0069d9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Delete Confirmation</h1>
+    </div>
+
+    <div class="confirmation-container">
+        <h1>Are you sure you want to delete {{ lead.first_name }} {{ lead.last_name }}?</h1>
         <form method="post">
             {% csrf_token %}
-            <button type="submit">Confirm</button>
+            <button type="submit" class="button">Confirm</button>
         </form>
-        <a href="{% url 'leads:lead_list' %}">Cancel</a>
+        <a href="{% url 'leads:lead_list' %}" class="button button-blue">Cancel</a>
+    </div>
 </body>
 </html>

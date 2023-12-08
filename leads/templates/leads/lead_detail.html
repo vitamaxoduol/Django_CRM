@@ -4,27 +4,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lead Details</title>
     <style>
-        .lead {
-            padding-top: 10px;
-            padding-bottom: 10px;
-            padding-left: 6px;
-            padding-right: 6px;
-            margin-top: 10px;
-            background-color: #f6f6f6f6;
-            width: 100%;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .detail-container {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+
+        .detail-container h1 {
+            color: #333;
+            font-size: 24px;
+        }
+
+        .detail-container p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .button:hover {
+            background-color: #218838;
+        }
+
+        .button-red {
+            background-color: #dc3545;
+        }
+
+        .button-red:hover {
+            background-color: #c82333;
+        }
+
+        .button-blue {
+            background-color: #007bff;
+        }
+
+        .button-blue:hover {
+            background-color: #0069d9;
         }
     </style>
 </head>
-
 <body>
-    <a href="/leads">Go Back to leads</a>
-    <hr>
-    <h1>This is all details of {{ lead.first_name }}</h1>
-    <p>This person age: {{ lead.age }}</p>
-    <hr>
-    <a href="/leads/{{ lead.pk}}/update/">Update</a>
-    <a href="/leads/{{ lead.pk}}/delete/">Delete</a>
+    <div class="header">
+        <h1>Lead Details</h1>
+    </div>
+
+    <div class="detail-container">
+        <h1>{{ lead.first_name }} {{ lead.last_name }}</h1>
+        <p>Age: {{ lead.age }}</p>
+        <a href="{% url 'leads:lead_update' lead.id %}" class="button button-blue">Update</a>
+        <a href="{% url 'leads:lead_delete' lead.id %}" class="button button-red">Delete</a>
+        <a href="{% url 'leads:lead_list' %}" class="button">Go Back to Leads</a>
+    </div>
 </body>
 </html>

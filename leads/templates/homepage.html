@@ -60,10 +60,16 @@
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+
         }
 
         .feature {
             margin-bottom: 20px;
+            flex-basis: 45%%;
+
         }
 
         .feature h3 {
@@ -76,11 +82,36 @@
             background-color: #007bff;
             color: white;
         }
+
+        /* Login and Signup Links */
+        .auth-links {
+            float: right;
+            padding: 10px 20px;
+        }
+
+        .auth-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        /* About Us Section */
+        .about-us {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="navbar">
         <strong>Intently.co CRM</strong>
+        <div class="auth-links">
+            <a href="/login">Login</a>
+            <a href="/signup">Signup</a>
+        </div>
     </div>
 
     <div class="container">
@@ -92,16 +123,25 @@
 
         <div class="features">
             <div class="feature">
-                <h3>Feature 1</h3>
-                <p>Description of Feature 1.</p>
+                <h3>CRM & lead management</h3>
+                <p>Generate, manage, and convert 
+                    leads into customers. Automatically</p>
             </div>
 
             <div class="feature">
-                <h3>Feature 2</h3>
-                <p>Description of Feature 2.</p>
+                <h3>Project & team management</h3>
+                <p>Automate workflows and monitor your sales reps’ activity effortlessly</p>
             </div>
 
             <!-- Add more features as needed -->
+        </div>
+        <div class="about-us">
+            <h2>About Us</h2>
+            <p>Bring the very best out of your customer-facing teams with robust automation,
+                 comprehensive analytics, personalized solutions, and more. 
+                 Sign up and get started in no time—the fastest implementation in the enterprise 
+                 CRM market.</p>
+            <!-- [Additional About Us Content] -->
         </div>
     </div>
 
